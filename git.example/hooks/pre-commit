@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# get bash colors and styles here:
+# http://misc.flogisoft.com/bash/tip_colors_and_formatting
+C_RESET='\e[0m'
+C_RED='\e[31m'
+C_GREEN='\e[32m'
+C_YELLOW='\e[33m'
+
+function __run() #(step, name, cmd)
+{
+    local color output exitcode
+
+    printf "${C_YELLOW}[%s]${C_RESET} %-20s" "$1" "$2"
+    output=$(eval "$3" 2>&1)
+    exitcode=$?
+
+    if [[ 0 == $exitcode || 130 == $exitcode ]]; then
+        echo -e "${C_GREEN}OK!${C_RESET}"
+    else
+        echo -e "${C_RED}NOK!${C_RESET}\n\n$output"
+        exit 1
+    fi
+}
+
+modified="git diff --diff-filter=M --name-only --cached  | grep \".php$\""
+ignore="resources/lang,resources/views,bootstrap/helpers,database/migrations,bin"
+phpcs="vendor/bin/ecs check --fix --clear-cache"
+
+__run "1/4" "code sniffer" "${modified} | xargs -r ${phpcs}"
+__run "2/4" "phpstan" "${modified} | xargs -r vendor/bin/phpstan analyse -c phpstan.neon -l 3 --memory-limit=2G"
+__run "3/4" "clear" "${modified} | php artisan optimize:clear"
+__run "4/4" "test" "${modified} | php vendor/bin/phpunit"
+echo
+touch .commit
+exit

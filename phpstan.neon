@@ -1,0 +1,13 @@
+parameters:
+	level: 3
+	paths:
+		- app
+		- tests
+	excludePaths:
+		- 'ecs.php'
+		- 'storage/*'
+		- 'vendor/*'
+	ignoreErrors:
+		    -'#Call to an undefined method#'
+		    -'#Access to an undefined property#'
+		    -'#Call to an undefined static method#'
