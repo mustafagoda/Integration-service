@@ -39,12 +39,12 @@ return [
         'suppliers' => [
             ReportBugSupplierEnum::JIRA->value => [
                 SupplierEnvironmentEnum::TEST->value => [
-                    'base_url' => env('TEST_URL_JIRA', 'https://sllm.atlassian.net/'),
+                    'base_url' => env('TEST_URL_JIRA', 'https://tenant.atlassian.net/'),
                     'api_token' => 'ATATT3xFfGF07-NXrOWrM0vOHsHnrgDBLioHr54IJ0RcNRWmt4PqOoxW1S-AguChtTbykM7oAYeqwNq4G_HZXNsV4Wn86G-xFyAkDo2C8UVm0Dp_ihNlazqo4rCBm-i9yRds31SRVsGNwGFp-r_jdv9Xuzhvc8MraJyx2tR5L9K3ZMAF2JGA7Qs=3FFC2417',
                     'username' => 'mostafagoda199@gmail.com',
                 ],
                 SupplierEnvironmentEnum::LIVE->value => [
-                    'base_url' => env('URL_JIRA', 'https://sllm.atlassian.net/'),
+                    'base_url' => env('URL_JIRA', 'https://tenant.atlassian.net/'),
                     'api_token' => 'ATATT3xFfGF07-NXrOWrM0vOHsHnrgDBLioHr54IJ0RcNRWmt4PqOoxW1S-AguChtTbykM7oAYeqwNq4G_HZXNsV4Wn86G-xFyAkDo2C8UVm0Dp_ihNlazqo4rCBm-i9yRds31SRVsGNwGFp-r_jdv9Xuzhvc8MraJyx2tR5L9K3ZMAF2JGA7Qs=3FFC2417',
                     'username' => 'mostafagoda199@gmail.com',
                 ],

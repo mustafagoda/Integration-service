@@ -97,7 +97,7 @@ return [
                         'value' => null,
                     ],
                     [
-                        'slug' => 'store-name',
+                        'slug' => 'tenant-name',
                         'name' => 'messages.dynamic_settings.name',
                         'type' => AttributeTypeEnum::TEXT->value,
                         'validation' => json_encode(['required', 'string', 'min:10', 'max:191']),
@@ -116,7 +116,7 @@ return [
                 'icon' => 'from ui template icons',
                 'attributes' => [
                     [
-                        'slug' => 'store-email',
+                        'slug' => 'tenant-email',
                         'name' => 'messages.dynamic_settings.email',
                         'type' => AttributeTypeEnum::TEXT->value,
                         'validation' => json_encode(['optional', 'string']),
@@ -127,7 +127,7 @@ return [
                         'value' => null,
                     ],
                     [
-                        'slug' => 'store-phone',
+                        'slug' => 'tenant-phone',
                         'name' => 'messages.dynamic_settings.phone',
                         'type' => AttributeTypeEnum::TEXT->value,
                         'validation' => json_encode(['required', 'string']),
@@ -138,7 +138,7 @@ return [
                         'value' => null,
                     ],
                     [
-                        'slug' => 'another-store-phone',
+                        'slug' => 'another-tenant-phone',
                         'name' => 'messages.dynamic_settings.another_phone',
                         'type' => AttributeTypeEnum::TEXT->value,
                         'validation' => json_encode(['optional', 'string']),
@@ -148,25 +148,6 @@ return [
                         'options' => null,
                         'value' => null,
                     ]
-                ]
-            ],
-            [
-                'slug' => 'store-seo',
-                'name' => 'messages.dynamic_settings.seo',
-                'description' => 'messages.dynamic_settings.seo',
-                'icon' => 'from ui template icons',
-                'attributes' => [
-                    [
-                        'slug' => 'meta-description',
-                        'name' => 'messages.dynamic_settings.meta_description',
-                        'type' => AttributeTypeEnum::TEXTAREA->value,
-                        'validation' => json_encode(['optional', 'image', 'string']),
-                        'icon' => 'from ui template icons',
-                        'tooltip' => 'messages.dynamic_settings.tooltip.enter_meta_description',
-                        'placeholder' => 'messages.dynamic_settings.tooltip.enter_meta_description',
-                        'options' => null,
-                        'value' => null,
-                    ],
                 ]
             ],
             [
